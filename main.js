@@ -2,6 +2,73 @@
  * HELPER FUNCTIONS *
  ********************/
 
+const newDinosaur = function(dinosaur = {species: '', period: '', carnivore: '', extinct: false}) {
+  return {
+    species: dinosaur.species,
+    period: dinosaur.period,
+    carnivore: dinosaur.carnivore,
+    extinct: dinosaur.extinct
+  };
+}
+
+const makeDino = function(species, period, carnivore, extinct = false) {
+  return {
+    species: species,
+    period: period,
+    carnivore: carnivore,
+    extinct: extinct
+  };
+}
+
+const makeSingular = function(dinosaur) {
+  const dino = newDinosaur(dinosaur);
+
+  if(dino.species.match(/us$/)) {
+    dino.species = dino.species.slice(0, -2);
+  }
+
+  return dino;
+}
+
+const truncateSpecies = function(dinosaur) {
+  const dino = newDinosaur(dinosaur);
+
+  dino.species = dino.species.slice(0,7);
+
+  return dino;
+}
+
+const makeExtinct = function(dinosaur) {
+  const dino = newDinosaur(dinosaur);
+
+  dino.extinct = true;
+
+  return dino;
+}
+
+const isCarnivore = function(dinosaur) {
+  return dinosaur.carnivore;
+}
+
+const isExtinct = function(dinosaur) {
+  return dinosaur.extinct;
+}
+
+const isTriassic = function(dinosaur) {
+  return dinosaur.period == "Triassic";
+}
+
+const isJurassic = function(dinosaur) {
+  return dinosaur.period == "Jurassic";
+}
+
+const isCretaceous = function(dinosaur) {
+  return dinosaur.period == "Cretaceous";
+}
+
+const isFirstAlphabeticallyBySpecies = function(dino1, dino2) {
+  return dino1.species - dino2.species;
+}
 
 
 /***********************
